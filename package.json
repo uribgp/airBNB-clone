@@ -31,8 +31,11 @@
     "uuid": "^8.0.0"
   },
   "devDependencies": {
+    "babel-plugin-import": "^1.13.0",
+    "customize-cra": "^1.0.0",
     "dotenv": "^8.2.0",
     "dotenv-cli": "^3.1.0",
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "react-app-rewired": "^2.1.6"
   }
 }
