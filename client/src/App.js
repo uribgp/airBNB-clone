@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { CssBaseline } from '@material-ui/core';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+
+const store = configureStore();
+
+// for testing purposes.  Auth.js has function added to window on line 30
+if (process.env.NODE_ENV !== 'production'){
+  window.store = store
+}
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -22,9 +32,11 @@ function App() {
     <>
       <CssBaseline />
       <BrowserRouter>
-        <Route path="/">
-          <h1>Airbnb clone thing</h1>
-        </Route>
+        <Provider store={store}>
+          <Route path="/">
+            <h1>Airbnb clone thing</h1>
+          </Route>
+        </Provider>
       </BrowserRouter>
     </>
   );
