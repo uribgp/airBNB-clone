@@ -1,0 +1,10 @@
+svg {
+    fill: black;
+    height: 39px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
