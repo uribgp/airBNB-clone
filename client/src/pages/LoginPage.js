@@ -59,7 +59,6 @@ export default function LoginPage() {
         <Modal
         className={classes.modal}
         open={open}
-        //   style={{display:'flex',alignItems:'center',justifyContent:'center'}}
         onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
@@ -75,9 +74,11 @@ export default function LoginPage() {
         classes={{root: classes.container}}
         fixed 
         maxWidth="sm"
+        className="formContainer"
         >
         <div className="header">
-              Log in
+        <button className="modalButton" onClick={handleClose}>X</button>
+        <span>Log in</span>
             </div>
               <form onSubmit={handleSubmit} className="bodyForm">
               <AuthTextField
@@ -97,6 +98,9 @@ export default function LoginPage() {
                     <AuthSubmitButton>
                     Log in
                 </AuthSubmitButton>
+                <div className="errors-container">
+                <ul className="errors" id="errors"></ul>
+              </div>
                 </form>
                 <AuthSubmitButton onClick={handleSubmitDemo}>
                 Demo User

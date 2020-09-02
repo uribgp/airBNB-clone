@@ -79,7 +79,11 @@ export default function SignUpPage() {
         fixed 
         maxWidth="sm"
         >
-        <h1>Finish Signing Up</h1>
+        
+        <div className="header-signup">
+          <button className="modalButton" onClick={handleClose}>X</button>
+            <span>Finish Signing Up</span>
+        </div>
                   <form onSubmit={handleSubmit}>
                   <AuthTextField
                     variant="outlined"

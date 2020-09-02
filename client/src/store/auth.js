@@ -20,9 +20,18 @@ export const login = (username, password) => {
             body: JSON.stringify({username, password})
         });
         res.data = await res.json(); // returning currentUser from User model
+        const errorsList = document.getElementById("errors");
+        errorsList.innerHTML = "";
+        const { message } = res.data;
+        if (message) {
+          errorsList.style.display = "flex";
+          const errorLi = document.createElement("li");
+          errorLi.innerHTML = message;
+          errorsList.appendChild(errorLi)
+        }
         if (res.ok) {
-            dispatch(setUser(res.data.user));
-        } // else statement for errors goes here
+          dispatch(setUser(res.data.user))
+        }
         return res;
     };
 };
