@@ -59,7 +59,6 @@ export const logout = async () => {
         method: 'delete',
         headers: {"XSRF-TOKEN": Cookies.get("XSRF-TOKEN")},
     })
-    console.log(res)
     res.data = await res.json()
     if (res.ok) {
         return true;
@@ -69,7 +68,7 @@ export const logout = async () => {
 
 export const register = (email, password) => {
     return async dispatch => {
-        const res = await fetch('/api/session', {
+        const res = await fetch("/api/session", {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
@@ -78,10 +77,11 @@ export const register = (email, password) => {
             body: JSON.stringify({email, password})
         });
         res.data = await res.json(); // returning currentUser from User model
+        console.log(res.data)
         if (res.ok) {
             return true;
         } // else statement for errors goes here
-        return res;
+        return;
     };
 };
 

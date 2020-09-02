@@ -10,6 +10,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { register } from '../store/auth';
 import { useHistory } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 
 
 export default function SignUpPage() {
@@ -45,10 +46,11 @@ export default function SignUpPage() {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const success = await register(email, password)
         dispatch(register(email,password))
-      if (success) history.push("/");
-    }
+      }
+      // return <Redirect to="/" />
+      // const success = await register(email, password)
+      // if (success) history.push("/");
 
     // if (loggedIn) return <Redirect to="/" />;
     // Am I returning a new component or what?

@@ -11,6 +11,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import SignUpPage from './SignUpPage';
 import LogOutButton from './LogOutButton';
+import { Redirect } from 'react-router-dom';
 
 const useStyles = makeStyles({
     container: {
@@ -36,9 +37,10 @@ export default function LoginPage() {
         setOpen(false);
     };
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        dispatch(login(username, password))
+        await dispatch(login(username, password))
+        return <Redirect to="/" />
     }
 
     const handleSubmitDemo = (e) => {
