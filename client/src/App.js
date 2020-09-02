@@ -4,6 +4,17 @@ import { CssBaseline } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import Pages from './pages/Pages';
 import { setUser } from './store/auth';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  overrides:{
+    '@global': {
+      body: {
+        // global overrides here
+      },
+    },
+  },
+})
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -25,12 +36,12 @@ function App() {
   if (loading) return null;
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
         <Pages />
       </BrowserRouter>
-    </>
+    </ThemeProvider>
   );
 }
 

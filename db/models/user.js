@@ -15,11 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       username: {
-        allowNull: false,
         type: DataTypes.STRING,
-        validates: {
-          len: [1, 255],
-        },
       },
       hashedPassword: {
         allowNull: false,

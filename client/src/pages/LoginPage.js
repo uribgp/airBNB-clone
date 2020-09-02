@@ -1,65 +1,113 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../store/auth';
-import { Redirect } from 'react-router-dom';
+import { login, loginDemo } from '../store/auth';
 import { Container} from '@material-ui/core';
 import AuthSubmitButton from '../components/auth/AuthSubmitButton';
-import AirbnbLogo from '../components/auth/AirbnbLogo';
 import './LoginPage.css';
 import { makeStyles } from '@material-ui/core/styles';
 import AuthTextField from '../components/auth/AuthTextFields';
+import { Modal } from '@material-ui/core';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+import SignUpPage from './SignUpPage';
+import LogOutButton from './LogOutButton';
 
 const useStyles = makeStyles({
     container: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'white',
     }
 })
 
 export default function LoginPage() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const loggedIn = useSelector(state => !!state.auth.id)
-    const dispatch = useDispatch()
     const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+    const dispatch = useDispatch()
+    
+    const handleOpen = () => {
+        setOpen(true);
+    };
+    
+    const handleClose = () => {
+        setOpen(false);
+    };
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(login(username, password))
+    }
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(login(username, password))
-}
+    const handleSubmitDemo = (e) => {
+        e.preventDefault();
+        dispatch(loginDemo())
+    }
 
-if (loggedIn) return <Redirect to="/" />;
+    const loggedIn = useSelector(state => !!state.auth.id)
+
+    if (loggedIn) return <LogOutButton/>;
 
     return (
-        <Container 
-            classes={{root: classes.container}}
-            fixed 
-            maxWidth="sm"
+        <>
+        <div>
+        <button type="button" onClick={handleOpen}>
+        Log in
+        </button>
+        <Modal
+        className={classes.modal}
+        open={open}
+        //   style={{display:'flex',alignItems:'center',justifyContent:'center'}}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+            timeout: 500,
+        }}
+        
         >
-
-            <AirbnbLogo/>
-            <h1>Log in</h1>
-            <form onSubmit={handleSubmit}>
-            <AuthTextField
-                variant="filled"
-                label="Email or username" 
-                value={username} 
-                 onChange={e => setUsername(e.target.value)}
-            />
-            <AuthTextField
-                variant="filled"
-                label="password" 
-                value={password} 
-                onChange={e => setPassword(e.target.value)}
-                type="password"
-            />
-                <AuthSubmitButton
-                    disabled={!username || !password}
-                >
+        <Fade in={open}>
+        <div className={classes.paper}>
+        <div className="spacer"></div>
+        <Container 
+        classes={{root: classes.container}}
+        fixed 
+        maxWidth="sm"
+        >
+        <div className="header">
+              Log in
+            </div>
+              <form onSubmit={handleSubmit} className="bodyForm">
+              <AuthTextField
+                    variant="outlined"
+                    label="Email" 
+                    value={username} 
+                    onChange={e => setUsername(e.target.value)}
+                    />
+                    <AuthTextField
+                    variant="outlined"
+                    label="password" 
+                    value={password} 
+                    onChange={e => setPassword(e.target.value)}
+                    type="password"
+                    />
+                    <div className="spacer-3"></div>
+                    <AuthSubmitButton>
                     Log in
                 </AuthSubmitButton>
-            </form>
-        </Container>
-    )
+                </form>
+                <AuthSubmitButton onClick={handleSubmitDemo}>
+                Demo User
+            </AuthSubmitButton>
+                    <SignUpPage /> 
+                    </Container>
+                    <div className="spacer"></div>       
+                </div>
+          </Fade>
+          </Modal>
+      </div>
+      </>
+    );
 }

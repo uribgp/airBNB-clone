@@ -6,6 +6,7 @@ const { User } = require("../../db/models");
 const { handleValidationErrors } = require("../util/validation");
 const { requireUser, generateToken, AuthenticationError } = require("../util/auth");
 const { jwtConfig: { expiresIn }} = require('../../config');
+const bcrypt = require('bcryptjs')
 
 const router = express.Router();
 
@@ -47,5 +48,15 @@ router.put(
     return next(new Error('Invalid credentials'));
   })
 );
+
+router.delete("/", asyncHandler(async (req, res) => {
+  res.clearCookie("token");
+  res.json({message: "ok"})
+}))
+
+router.post("/", asyncHandler(async (req,res) => {
+  let hashedPw = bcrypt.hashSync(req.body.password)
+  User.create({email: req.body.email, hashedPassword: hashedPw, username: 'name'}).then(user => res.send('success')).catch(err => console.error(err))
+}))
 
 module.exports = router;

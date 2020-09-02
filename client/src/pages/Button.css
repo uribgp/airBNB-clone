@@ -1,0 +1,22 @@
+.signup-button {
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-style: inherit !important;
+    line-height: inherit !important;
+    -webkit-appearance: none !important;
+    cursor: pointer !important;
+    user-select: auto !important;
+    color: rgb(34, 34, 34) !important;
+    font-weight: 600 !important;
+    font-variant: inherit !important;
+    background: transparent !important;
+    border-width: 0px !important;
+    border-style: initial !important;
+    border-color: initial !important;
+    border-image: initial !important;
+    margin: 0px !important;
+    padding: 10px !important;
+    text-decoration: underline !important;
+    border-radius: 4px !important;
+    outline: none !important;
+}
