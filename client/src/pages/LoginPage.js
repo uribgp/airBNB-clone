@@ -77,9 +77,9 @@ export default function LoginPage() {
         className="formContainer"
         >
         <div className="header">
-        <button className="modalButton" onClick={handleClose}>X</button>
-        <span>Log in</span>
-            </div>
+            <button className="modalButton" onClick={handleClose}>X</button>
+            <span>Log in</span>
+        </div>
               <form onSubmit={handleSubmit} className="bodyForm">
               <AuthTextField
                     variant="outlined"
