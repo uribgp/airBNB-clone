@@ -20,8 +20,6 @@ export default function SignUpPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     
-    let history = useHistory();
-    
     const useStyles = makeStyles({
         container: {
             display: 'flex',
@@ -33,7 +31,8 @@ export default function SignUpPage() {
     
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const history = useHistory();
     const loggedIn = useSelector(state => !!state.auth.id)
     
     const handleOpen = () => {
@@ -44,16 +43,11 @@ export default function SignUpPage() {
         setOpen(false);
     };
     
-    const handleSubmit = async (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         dispatch(register(email,password))
+        handleClose()
       }
-      // return <Redirect to="/" />
-      // const success = await register(email, password)
-      // if (success) history.push("/");
-
-    // if (loggedIn) return <Redirect to="/" />;
-    // Am I returning a new component or what?
 
     return (
       <div>

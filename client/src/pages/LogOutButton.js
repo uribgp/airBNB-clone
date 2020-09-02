@@ -1,16 +1,30 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { logout } from '../store/auth'
+import { useDispatch, useSelector } from 'react-redux';
+
 
 
 
 
 function LogoutButton(props) {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const [open, setOpen] = React.useState(false);
+  
+  
+  const handleClose = () => {
+    setOpen(false);
+};
+function refreshPage() {
+  window.location.reload(false);
+}
+
   
   const handleSubmit = async(e) => {
     e.preventDefault();
-    logout()
-    return <Redirect to="/" />
+    dispatch(logout())
+    refreshPage()
 }
 
 
