@@ -10,5 +10,8 @@ module.exports = {
   jwtConfig: {
     secret: process.env.JWT_SECRET_KEY,
     expiresIn: process.env.JWT_EXPIRES_IN
+  },
+  api_keys: {
+    mapkey: process.env.GOOGLE_MAPS_API
   }
 };

@@ -1,53 +1,52 @@
-import React from "react";
+import React, { useState } from 'react';
 import { Redirect } from "react-router-dom";
+import { searchCity } from '../../store/listings';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 
-class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputValue: '',
-    };
-  }
+export default function SearchBar() {
+  const [city, setCity] = useState('')
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
+  const [guests, setGuests] = useState('')
+  // const [state,setState] = useState('')
 
-  updateInputVal = e => {
-    this.setState({ inputValue: e.target.value });
-  }
+  const history = useHistory()
+  const dispatch = useDispatch();
 
-  handleSubmit = e => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
+    history.push(`/listings/${city}`)
+    // dispatch(searchCity(city))
   }
 
-  render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={this.state.inputValue}
-          onChange={this.updateInputVal}
+          value={city}
+          onChange={e => setCity(e.target.value)}
           placeholder="Where are you going?"
         />
         <input
             type="date"
-            value={this.state.inputValue}
-            onChange={this.updateInputVal}
+            value={startDate}
+            onChange={e => setStartDate(e.target.value)}
             placeholder="Add Dates"
         />
         <input
             type="date"
-            value={this.state.inputValue}
-            onChange={this.updateInputVal}
+            value={endDate}
+            onChange={e => setEndDate(e.target.value)}
             placeholder="Add Dates"
         />
         <input
             type="text"
-            value={this.state.inputValue}
-            onChange={this.updateInputVal}
+            value={guests}
+            onChange={e => setGuests(e.target.value)}
             placeholder="Add Guests"
         />
         <button type="submit" >Submit</button>
       </form>
     );
-  }
 };
-
-export default SearchBar;

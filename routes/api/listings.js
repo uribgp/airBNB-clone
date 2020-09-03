@@ -9,3 +9,5 @@ router.get("/api/listings",
       res.json({ listings });
     })
   );
+
+  //fetch goes here
