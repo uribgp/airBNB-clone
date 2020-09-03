@@ -16,7 +16,8 @@ module.exports = {
       ListingId: {
         allowNull: false,
         references: {model: 'Listings'},
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: 'cascade'
       },
       booked: {
         allowNull: false,

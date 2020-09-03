@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'ListingId',
       through: 'Bookings',
       otherKey: 'UserId',
-      onDelete: 'cascade'
     })
   };
   return Listing;

@@ -1,0 +1,120 @@
+form {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* margin: auto;
+    align-items:'center';
+    justify-content:'center'; */
+}
+
+p {
+    color: rgb(113, 113, 113) !important;
+    font-size: 12px !important;
+}
+
+.signup {
+        -webkit-box-align: center !important;
+        display: flex !important;
+        align-items: center !important;
+        margin-top: 16px !important;
+        margin-bottom: 16px !important;
+    }
+
+.spacer {
+    /* margin-top: 50px;
+    height: 100px; */
+    padding:100px;
+}
+
+.spacer-2 {
+    padding:25px;
+}
+
+.spacer-3 {
+    padding:10px;
+}
+
+.header,.header-signup {
+    width:100%;
+    -webkit-box-pack: justify !important;
+    -webkit-box-align: center !important;
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    color: rgb(34, 34, 34) !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    font-weight: 800 !important;
+    flex: 0 0 auto !important;
+    border-bottom: 1px solid rgb(235, 235, 235) !important;
+}
+.header span {
+    /* text-align: center; */
+    position:absolute;
+    left:46%;
+    display: inline;
+}
+
+.header-signup span {
+    /* text-align: center; */
+    position:absolute;
+    left:40%;
+    display: inline;
+}
+
+.bodyForm {
+    overflow-y: auto !important;
+    padding: 24px !important;
+    flex: 1 1 auto !important;
+    outline: none !important;
+}
+
+.errors-container {
+    display: flex;
+    justify-content: center;
+ }
+ .errors{
+     display: none;
+     width: 100%;
+     border: 1px solid rgb(0,0,0);
+     border-radius: 3px;
+     color: #333333;
+     margin: 16px 0;
+     padding: 12px;
+     text-align: center;
+     list-style-type: none;
+ }
+
+ .formContainer {
+    border-radius: 10px;
+ }
+
+ .modalButton {
+     font-weight: bold;
+     font-size: inherit !important;
+     font-family: inherit !important;
+     font-style: inherit !important;
+     line-height: inherit !important;
+     -webkit-appearance: none !important;
+     cursor: pointer !important;
+     user-select: auto !important;
+     color: rgb(34, 34, 34) !important;
+     font-weight: 600 !important;
+     font-variant: inherit !important;
+     background: transparent !important;
+     border-width: 0px !important;
+     border-style: initial !important;
+     border-color: initial !important;
+     border-image: initial !important;
+     margin: 0px !important;
+     padding: 10px !important;
+     border-radius: 4px !important;
+     outline: none !important;
+
+ }
