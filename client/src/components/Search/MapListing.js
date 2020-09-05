@@ -1,6 +1,5 @@
 import React from 'react';
 import Marker from './Marker';
-import { useState } from 'react';
 import MapPopup from './MapPopup';
 
 export default function MapListing({listing, toggleItem, onClick, listing: {id}}) {
