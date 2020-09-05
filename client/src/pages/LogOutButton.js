@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import React from 'react';
 import { logout } from '../store/auth'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 
 
 
@@ -9,13 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function LogoutButton(props) {
   const dispatch = useDispatch();
-  const history = useHistory();
-  const [open, setOpen] = React.useState(false);
   
   
-  const handleClose = () => {
-    setOpen(false);
-};
 function refreshPage() {
   window.location.reload(false);
 }

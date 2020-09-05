@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Container} from '@material-ui/core';
 import AuthSubmitButton from '../components/auth/AuthSubmitButton';
 import './Button.css';
@@ -9,8 +9,6 @@ import { Modal } from '@material-ui/core';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { register } from '../store/auth';
-import { useHistory } from "react-router-dom";
-import { Redirect } from 'react-router-dom';
 
 
 export default function SignUpPage() {
@@ -32,8 +30,6 @@ export default function SignUpPage() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const dispatch = useDispatch();
-    const history = useHistory();
-    const loggedIn = useSelector(state => !!state.auth.id)
     
     const handleOpen = () => {
         setOpen(true);

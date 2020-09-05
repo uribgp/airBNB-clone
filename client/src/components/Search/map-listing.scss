@@ -1,0 +1,36 @@
+.map-listing {
+    position: relative;
+    box-sizing: border-box;
+    .map-popup {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left:0;
+      background:white;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+      width: 250px;
+      z-index: 100;
+      img {
+        width: 100%;
+      }
+      a {
+        text-decoration: none;
+        color:black;
+      }
+    }
+    .map-popup-text-content {
+      padding: 20px 20px;
+    }
+    .map-popup-price{
+      font-size: 16px;
+    }
+    .map-popup-star{
+      font-size: 16px;
+    }
+    .map-popup-reviews{
+      font-size: 16px;
+    }
+    .map-popup-name {
+      font-size: 16px;
+    }
+  
+  } 
