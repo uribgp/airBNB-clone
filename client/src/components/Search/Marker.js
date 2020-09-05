@@ -3,7 +3,7 @@ import './listings.css';
 
 const Listing = (props) => {
     return (
-        <div class="marker">{props.price}</div>
+        <div onClick={props.onClick} className="marker">{props.price}</div>
     )
 }
 

@@ -9,33 +9,35 @@ import { setListings } from '../../store/listings';
 
 class ListingsContainer extends Component {
     
-    componentWillMount() {
-        this.props.setListings();
-    }
-    
     
     render(){
-        return (
-        <div className="listings-container">
-            <div className="listings">
-                {this.props.listings.map((listing) => <Listing listing={listing} key={listing.id} />)}
-            </div>
-        </div>
-            )
-        }
-    }
+        const notLoaded = this.props.listings && this.props.listings.length > 0;
 
-    function mapReduxStateToProps(reduxState){
-        return {
-            listings: reduxState.listings
-        }
+        return (
+            <>
+            {notLoaded ?
+                <div className="listings-container">
+                    <div className="listings">
+                        {this.props.listings.map((listing) => <Listing listing={listing} key={listing.id} />)}
+                    </div>
+                </div>: 'Loading...'}
+            </>
+            )
     }
-    
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(
-        {setListings: setListings},
-        dispatch
-    )
 }
 
-export default connect(mapReduxStateToProps, mapDispatchToProps)(ListingsContainer);
+function mapReduxStateToProps(reduxState){
+    return {
+        listings: reduxState.listings
+    }
+}
+    
+// binds setListings to the this component.
+// function mapDispatchToProps(dispatch) {
+//     return bindActionCreators(
+//         {setListings: setListings},
+//         dispatch
+//     )
+// }
+            // I was running dispatchToProps as second argument
+export default connect(mapReduxStateToProps)(ListingsContainer);

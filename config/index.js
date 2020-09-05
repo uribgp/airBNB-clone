@@ -12,6 +12,7 @@ module.exports = {
     expiresIn: process.env.JWT_EXPIRES_IN
   },
   api_keys: {
-    mapkey: process.env.GOOGLE_MAPS_API
+    mapkey: process.env.REACT_APP_GOOGLE_MAPS_API,
+    mashkey: process.env.MASHVISOR_KEY
   }
 };

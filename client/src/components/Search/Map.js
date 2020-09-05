@@ -2,47 +2,44 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import './listings.css';
 import Marker from './Marker';
-import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
-import { setListings } from '../../store/listings';
-// import { mapkey } from './config/index'
+import MapListing from './MapListing';
+import './map-listing.css'
 
 class Map extends Component {
-    
-    componentWillMount() {
-        this.props.setListings();
+    state = {
+        toggledItem: '',
     }
 
     render() {
-        let center = {lat: this.props.listings[0].lat, lng: this.props.listings[0].long}
-        // let key = process.env.REACT_APP_GOOGLE_MAPS_API
+        let center = {lat: 0, lng: 0};
         let key = 'AIzaSyBYOx7FBYB_fZ8ZCNXhN9frBQsM1WW_4Z0'
+        const notLoaded = this.props.listings && this.props.listings.length > 0;
 
+        if (notLoaded){
+            center = {lat: this.props.listings[0].lat, lng: this.props.listings[0].long}
+        }
     return (
-        <div className="map">
-            <GoogleMapReact center={center} 
-                            defaultZoom={10} 
-                            bootstrapURLKeys={{ key: key}}
-                            yesIWantToUseGoogleMapApiInternals>
-                            {this.props.listings.map((listing) => <Marker lat={listing.lat} lng={listing.long} price={listing.price} />)}
-            </GoogleMapReact>
-        </div>
+         <>
+             {notLoaded ?
+            <div className="map">
+                <GoogleMapReact
+                                defaultCenter={center}
+                                defaultZoom={11}
+                                bootstrapURLKeys={{ key: key}}
+                                yesIWantToUseGoogleMapApiInternals>
+                                {this.props.listings.map((listing) => <MapListing onClick={(id) => this.setState({toggledItem: id})} toggleItem={this.state.toggledItem} lat={listing.lat} lng={listing.long} listing={listing} />)}
+                </GoogleMapReact>
+            </div> : 'Loading........' }
+         </>
     )
     }
 }
     
+
 function mapReduxStateToProps(reduxState){
     return {
         listings: reduxState.listings
     }
 }
-    
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(
-        {setListings: setListings},
-        dispatch
-    )
-
-}
-
-export default connect(mapReduxStateToProps, mapDispatchToProps)(Map);
+export default connect(mapReduxStateToProps)(Map);

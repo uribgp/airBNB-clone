@@ -1,0 +1,45 @@
+.map-listing {
+    position: relative;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  .map-listing .map-popup {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 0;
+    background: white;
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    z-index: 100;
+  }
+  
+  .map-listing .map-popup img {
+    width: 100%;
+  }
+  
+  .map-listing .map-popup a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .map-listing .map-popup-text-content {
+    padding: 20px 20px;
+  }
+  
+  .map-listing .map-popup-price {
+    font-size: 16px;
+  }
+  
+  .map-listing .map-popup-star {
+    font-size: 16px;
+  }
+  
+  .map-listing .map-popup-reviews {
+    font-size: 16px;
+  }
+  
+  .map-listing .map-popup-name {
+    font-size: 16px;
+  }
