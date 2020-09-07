@@ -5,8 +5,10 @@
     margin-top: 10px;
 }
 
-form {
+.flex-form {
     display: flex;
+    width: 100%;
+    height: 80px;
 }
 input {
     width: 100%;
@@ -16,8 +18,18 @@ input {
     background-color: #E61E4D;
     color: white;
     text-align: center;
+    width: 300px;
+    border: none;
 }
 
 .submit_botton > text {
     text-align: center;
+}
+
+.date_range {
+    min-width: 200px;
+}
+
+.date_range {
+    max-width: 200px;
 }

@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
-import { Button } from "@material-ui/core";
-import PeopleIcon from "@material-ui/icons/People";
 import { useHistory } from "react-router-dom";
+import './searchbar.css';
 
 
 function DateRange() {
@@ -25,7 +24,7 @@ function DateRange() {
 
     return (
         <div className='date_range'>
-            <DateRangePicker ranges={[selectionRange]} onChange={handleSelect} />
+            <DateRangePicker direction='horizontal' ranges={[selectionRange]} onChange={handleSelect} />
         </div>
     )
 }

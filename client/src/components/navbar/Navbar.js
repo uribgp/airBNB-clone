@@ -10,7 +10,7 @@ import LoginPage from './login/LoginPage';
 
 function Navbar() {
   return (
-    <div className='header'>
+    <div className='navbar'>
         <Link to='/'>
             <img
                 className="airbnb_logo"

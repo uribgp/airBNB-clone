@@ -40,7 +40,7 @@ export default function SearchBar() {
 
     return (
       <div className="cover">
-      <form className="flex-form" onSubmit={handleSubmit}>
+      <div className="flex-form" onSubmit={handleSubmit}>
       <select value={state} onChange={e => setState(e.target.value)}>
         <option value="None">Choose a state</option>
         <option value="AL">Alabama</option>
@@ -111,11 +111,11 @@ export default function SearchBar() {
             onChange={e => setGuests(e.target.value)}
             placeholder="Add Guests"
         />
-        <button type="submit" className='submit_button' >
+        <button onClick={handleSubmit} className='submit_button' >
           <SearchIcon />
-          Search
+           Search
         </button>
-      </form>
+      </div>
       </div>
     );
 };
