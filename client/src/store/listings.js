@@ -48,9 +48,7 @@ export const searchCity = (city, state) => {
                     bath: x.baths,
                     lat: x.latitude,
                     long: x.longitude,
-                    image: x.image_url,
-                    stars: 5.00,
-                    reviews: 100
+                    image: x.image_url
                 }
             })
             // {id: 1, star: 5, reviews: 181, type: "Entire House", 

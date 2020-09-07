@@ -1,13 +1,16 @@
 import React from 'react';
-import LoginPage from './LoginPage';
+import InnerContent from '../components/homepage/InnerContent';
 import SearchBar from '../components/Search/SearchBar.js';
-
+import '../components/homepage/homepage.css';
+import '../components/homepage/homepage.css'
+// event cards
+// footer
 const HomePage = () => {
     return (
-        <>
-        <LoginPage />
-        <SearchBar />
-        </>
+        <div className='home'>
+            <SearchBar />
+            <InnerContent />
+        </div>
     )
 }
 

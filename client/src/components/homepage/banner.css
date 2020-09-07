@@ -1,0 +1,9 @@
+.banner {
+    height: 50vh;
+    position: relative;
+    background: url("airBNBBanner.png") center center;
+    padding: 40px 40px;
+    background-size: cover;
+    border-radius: 30px;
+    margin: 40px 40px;
+}

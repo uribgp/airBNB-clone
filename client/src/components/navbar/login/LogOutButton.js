@@ -1,5 +1,5 @@
 import React from 'react';
-import { logout } from '../store/auth'
+import { logout } from '../../../store/auth'
 import { useDispatch} from 'react-redux';
 
 

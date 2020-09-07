@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import { searchCity } from '../../store/listings';
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-// import './searchbar.css';
+import { Button } from "@material-ui/core";
+import DateRange from './DateRange'
+import SearchIcon from '@material-ui/icons/Search';
+import './searchbar.css'
 
 export default function SearchBar() {
   const [city, setCity] = useState('')
-  const [startDate, setStartDate] = useState('')
-  const [endDate, setEndDate] = useState('')
   const [guests, setGuests] = useState('')
   const [state,setState] = useState('')
+  const [showDateRange, setShowDateRange] = useState(false);
 
   const history = useHistory()
   const dispatch = useDispatch();
@@ -19,6 +21,22 @@ export default function SearchBar() {
     dispatch(searchCity(city,state))
     history.push(`/listings/${city}`)
   }
+
+
+
+//   <input
+//   type="date"
+//   value={startDate}
+//   onChange={e => setStartDate(e.target.value)}
+//   placeholder="Add Dates"
+// />
+// <input
+//   type="date"
+//   value={endDate}
+//   onChange={e => setEndDate(e.target.value)}
+//   placeholder="Add Dates"
+// />
+
 
     return (
       <div className="cover">
@@ -83,25 +101,20 @@ export default function SearchBar() {
           onChange={e => setCity(e.target.value)}
           placeholder="Where are you going?"
         />
-        <input
-            type="date"
-            value={startDate}
-            onChange={e => setStartDate(e.target.value)}
-            placeholder="Add Dates"
-        />
-        <input
-            type="date"
-            value={endDate}
-            onChange={e => setEndDate(e.target.value)}
-            placeholder="Add Dates"
-        />
+      <Button onClick={() => setShowDateRange(!showDateRange)} className='banner__searchButton' variant='outlined'>
+        {showDateRange ? "Hide" : "Check in / Check out"}
+     </Button>
+     {showDateRange && <DateRange />}
         <input
             type="text"
             value={guests}
             onChange={e => setGuests(e.target.value)}
             placeholder="Add Guests"
         />
-        <button type="submit" >Submit</button>
+        <button type="submit" className='submit_button' >
+          <SearchIcon />
+          Search
+        </button>
       </form>
       </div>
     );

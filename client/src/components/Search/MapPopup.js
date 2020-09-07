@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ListingDetail from '../SelectListing/ListingDetail'
+
 export default function MapPopup({
   listing: { name, price, star, reviews, id, image },
 }) {

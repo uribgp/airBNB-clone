@@ -1,0 +1,23 @@
+.cover {
+    display: flex;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 10px;
+}
+
+form {
+    display: flex;
+}
+input {
+    width: 100%;
+}
+
+.submit_button {
+    background-color: #E61E4D;
+    color: white;
+    text-align: center;
+}
+
+.submit_botton > text {
+    text-align: center;
+}

@@ -1,0 +1,44 @@
+.navbar {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+    width: 100%;
+}
+
+.search_icon {
+    color: rgb(255,90,96);
+}
+
+.airbnb_logo {
+    height: 100px;
+    object-fit: contain;
+    margin-left: 25px;
+}
+
+.quick_search {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    max-width: fit-content;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 999px;
+}
+
+.quick_search > input {
+    border: none;
+    padding: 10px;
+    outline-width: 0;
+  }
+
+.drop_downs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 15vw;
+    margin-right: 80px;
+}

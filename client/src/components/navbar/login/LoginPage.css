@@ -57,14 +57,14 @@ p {
 .header span {
     /* text-align: center; */
     position:absolute;
-    left:46%;
+    left:48%;
     display: inline;
 }
 
 .header-signup span {
     /* text-align: center; */
     position:absolute;
-    left:40%;
+    left:45%;
     display: inline;
 }
 

@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, loginDemo } from '../store/auth';
+import { login, loginDemo } from '../../../store/auth';
 import { Container} from '@material-ui/core';
-import AuthSubmitButton from '../components/auth/AuthSubmitButton';
+import AuthSubmitButton from '../../auth/AuthSubmitButton';
 import './LoginPage.css';
 import { makeStyles } from '@material-ui/core/styles';
-import AuthTextField from '../components/auth/AuthTextFields';
+import AuthTextField from '../../auth/AuthTextFields';
 import { Modal } from '@material-ui/core';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import SignUpPage from './SignUpPage';
+import SignUpPage from '../../../pages/SignUpPage';
 import LogOutButton from './LogOutButton';
 import { Redirect } from 'react-router-dom';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const useStyles = makeStyles({
     container: {
@@ -55,9 +56,9 @@ export default function LoginPage() {
     return (
         <>
         <div>
-        <button type="button" onClick={handleOpen}>
-        Log in
-        </button>
+            <AccountCircleIcon type="button" onClick={handleOpen}>
+                Log in
+            </AccountCircleIcon>
         <Modal
         className={classes.modal}
         open={open}
