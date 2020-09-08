@@ -24,7 +24,7 @@ function DateRange() {
 
     return (
         <div className='date_range'>
-            <DateRangePicker direction='horizontal' ranges={[selectionRange]} onChange={handleSelect} />
+            <DateRangePicker popperPlacement="bottom" ranges={[selectionRange]} onChange={handleSelect} />
         </div>
     )
 }

@@ -19,16 +19,23 @@ class Map extends Component {
         if (notLoaded){
             center = {lat: this.props.listings[0].lat, lng: this.props.listings[0].long}
         }
+
+
+        const mapStyle = {
+            height: '100vh'
+        }
+
+
     return (
          <>
              {notLoaded ?
-            <div className="map">
+            <div style={mapStyle} className="map">
                 <GoogleMapReact
                                 defaultCenter={center}
                                 defaultZoom={11}
                                 bootstrapURLKeys={{ key: key}}
                                 yesIWantToUseGoogleMapApiInternals>
-                                {this.props.listings.map((listing) => <MapListing onClick={(id) => this.setState({toggledItem: id})} toggleItem={this.state.toggledItem} lat={listing.lat} lng={listing.long} listing={listing} />)}
+                                {this.props.listings.map((listing) => <MapListing onCloseClick={() => this.setState({toggledItem: ""})} onClick={(id) => this.setState({toggledItem: id})} toggleItem={this.state.toggledItem} lat={listing.lat} lng={listing.long} listing={listing} />)}
                 </GoogleMapReact>
             </div> : 'Loading........' }
          </>

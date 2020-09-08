@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ListingDetail from '../SelectListing/ListingDetail'
 
 export default function MapPopup({
-  listing: { name, price, star, reviews, id, image },
+    onCloseClick,  
+    listing: { name, price, star, reviews, id, image },
 }) {
   return (
         <div className="map-popup">
+        <div onClick={event => {event.stopPropagation(); onCloseClick()}} className="map-popup-close">X</div>
             <Link to={`/listing/${id}`}>
                 <img src={image} />
                 <div className="map-popup-text-content">

@@ -101,7 +101,7 @@ export default function SearchBar() {
           onChange={e => setCity(e.target.value)}
           placeholder="Where are you going?"
         />
-      <Button onClick={() => setShowDateRange(!showDateRange)} className='banner__searchButton' variant='outlined'>
+      <Button className="date_picker" onClick={() => setShowDateRange(!showDateRange)} variant='outlined'>
         {showDateRange ? "Hide" : "Check in / Check out"}
      </Button>
      {showDateRange && <DateRange />}

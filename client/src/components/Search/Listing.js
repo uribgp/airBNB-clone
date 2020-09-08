@@ -19,9 +19,9 @@ const Listing = (props) => {
 
     return (
         <div class="listing-size"onClick={handleClick}>
-            <Link style={{textDecoration: "none", color: "black"}} to={`listing/${props.listing.id}`}>
+        <Link style={{textDecoration: "none", color: "black"}} to={`listing/${props.listing.id}`}>
             <div class="listing">
-                <img src="https://i.pinimg.com/originals/56/c5/35/56c535b08a5393ad2dbc4e6472734383.jpg" />
+                <img src={props.listing.image} />
                 <div class="listing-information">
                     <div class="listing-information-header">
                         <h3>{props.listing.type} in {props.listing.city}</h3>
@@ -32,7 +32,7 @@ const Listing = (props) => {
                         <h3>{amenities}</h3>
                     <div className="listing-information-body">
                         <div className="star">
-                            <p>X{props.listing.star} ({props.listing.reviews})</p>
+                            <p>X{props.listing.stars} ({props.listing.reviews})</p>
                         </div>
                         <div className="price">
                             <h2>${props.listing.price} / day</h2>

@@ -19,6 +19,9 @@
     vertical-align: top !important;
     white-space: normal !important;
     width: 100% !important;
+    height:100vh; 
+    max-height: 100vh;
+    overflow-y: scroll;
 }
 
 
@@ -119,4 +122,31 @@
     line-height: 1.8;
     font-size: 16px;
     font-weight: bold;
+}
+
+.listings::-webkit-scrollbar {
+    display: none;
+}
+
+.map-popup {
+    position: relative;
+
+
+}
+
+.map-popup-close {
+    position: absolute;
+    top:10px;
+    right:10px;
+    background:white;
+    font-size: 16px;
+    font-weight: 600;
+    color:grey;
+    border-radius:50%;
+    height:30px;
+    width:30px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
