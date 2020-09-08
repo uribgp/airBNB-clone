@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import './listings.css';
-import Marker from './Marker';
 import { connect } from 'react-redux';
 import MapListing from './MapListing';
-import './map-listing.css'
+import './map-listing.css';
+
 
 class Map extends Component {
     state = {
@@ -12,14 +12,13 @@ class Map extends Component {
     }
 
     render() {
-        let center = {lat: 0, lng: 0};
+        // let center = {lat: 0, lng: 0};
         let key = process.env.REACT_APP_GOOGLE_MAPS_API
         const notLoaded = this.props.listings && this.props.listings.length > 0;
 
-        if (notLoaded){
-            center = {lat: this.props.listings[0].lat, lng: this.props.listings[0].long}
-        }
-
+        // if (notLoaded){
+        //     center = {lat: this.props.listings[0].lat, lng: this.props.listings[0].long}
+        // }
 
         const mapStyle = {
             height: '100vh'
@@ -31,7 +30,8 @@ class Map extends Component {
              {notLoaded ?
             <div style={mapStyle} className="map">
                 <GoogleMapReact
-                                defaultCenter={center}
+                                defaultCenter={{lat: this.props.listings[0].lat, lng: this.props.listings[0].long}}
+                                center={{lat: this.props.listings[0].lat, lng: this.props.listings[0].long}}
                                 defaultZoom={11}
                                 bootstrapURLKeys={{ key: key}}
                                 yesIWantToUseGoogleMapApiInternals>

@@ -96,6 +96,10 @@
     margin-left: 10px;
 }
 
+.airbnb_star {
+    color: red;
+}
+
 .price {
     float:right;
     align-self: flex-end;

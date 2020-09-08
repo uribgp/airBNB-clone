@@ -1,8 +1,7 @@
 import React from 'react';
 import './listings.css';
-import { singleListing } from '../../store/listings';
-import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
+import StarIcon from "@material-ui/icons/Star";
 
 // id: 1, star: 5, reviews: 181, type: "Entire House", name: "Cool, fun adobe casita", city: "Santa Fe", price: 73, guests: 6, bedroom: 2, bed: 2, bath: 3}
 const Listing = (props) => {
@@ -32,7 +31,7 @@ const Listing = (props) => {
                         <h3>{amenities}</h3>
                     <div className="listing-information-body">
                         <div className="star">
-                            <p>X{props.listing.stars} ({props.listing.reviews})</p>
+                            <p><StarIcon className="airbnb_star" />{props.listing.stars} ({props.listing.reviews})</p>
                         </div>
                         <div className="price">
                             <h2>${props.listing.price} / day</h2>

@@ -1,5 +1,5 @@
-const SET_LISTINGS = 'fake/api/call';
-const SINGLE_LISTING = 'fake/api/call';
+const SET_LISTINGS = 'listings/all';
+const SINGLE_LISTING = 'listings/single';
 
 
 export function setListings(listings) { 
@@ -15,6 +15,7 @@ export function singleListing(listing) {
         listing: listing
     }
 }
+
 
 // function to get data from backend, at end of function dispatch setlistings, passing in the listings
 export const searchCity = (city, state) => {
