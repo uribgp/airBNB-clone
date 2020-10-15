@@ -13,7 +13,7 @@ class Map extends Component {
 
     render() {
         // let center = {lat: 0, lng: 0};
-        let key = process.env.REACT_APP_GOOGLE_MAPS_API
+        let key = 'AIzaSyBYOx7FBYB_fZ8ZCNXhN9frBQsM1WW_4Z0'
         const notLoaded = this.props.listings && this.props.listings.length > 0;
 
         // if (notLoaded){
